@@ -1,0 +1,50 @@
+html, body, #__nuxt, #__layout {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#__layout > * {
+  height: 100%;
+  box-sizing: border-box;
+  background: #fafafa;
+
+  byu-search {
+    margin-left: 20px;
+
+    button {
+      padding: 1px 6px;
+    }
+
+    input {
+      background: #FFFFFF;
+    }
+  }
+
+  #page-content {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-grow: 1;
+    background: #FFFFFF;
+
+    > * {
+      margin: 16px;
+    }
+  }
+
+  .application--wrap {
+
+    button {
+      font-weight: bold;
+    }
+
+    .warning {
+      color: #333333;
+    }
+  }
+
+  .application.theme--light {
+    background-color: #FFFFFF;
+  }
+}
