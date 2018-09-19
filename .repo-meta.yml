@@ -1,19 +1,19 @@
-# For full spec reference see https://github.com/byu-oit/repo-meta/blob/master/repo-meta-template.yml 
-# This file was automatically generated. It is used for various integrations like creating and updating Software CIs in the CMDB.
-# You are required to maintain Software CI records in the CMDB for all of the deployable software artifacts you maintain.
-# You can fill in the information here and have the integration do that for you or you can do that yourself manually.
-$schemaver: 2.1
-repo_url: https://github.com/byu-oit/domain-adm-res-vocabulary-inspector  # optional
-software:
-  - name: domain-adm-res-vocabulary-inspector  # optional
+  # For full spec reference see https://github.com/byu-oit/repo-meta/blob/master/repo-meta-template.yml
+  # This file was automatically generated. It is used for various integrations like creating and updating Software CIs in the CMDB.
+  # You are required to maintain Software CI records in the CMDB for all of the deployable software artifacts you maintain.
+  # You can fill in the information here and have the integration do that for you or you can do that yourself manually.
+  $schemaver: 2.1
+  repo_url: https://github.com/byu-oit/wabs-starter-nuxt  # optional
+  software:
+  - name: wabs-starter-nuxt  # optional
     deploy_to_cmdb: true # optional
-    type: ''
+    type: command-line app
     aliases:  # optional
-    short_description: Inspector for controlled vocabularies # optional
-    assignment_group: ''
+    short_description: # optional
+    assignment_group: gro:OIT-App Dev Architects
     notes: # optional
     maintained_by: # optional
-      - chantelperucca
+    - Gi60s
     data_sensitivity: internal
     developed_by_byu: true  # optional
     ddd: # optional
@@ -21,10 +21,14 @@ software:
       ubiquitous_language_url:
       context_map_url:
     links: # optional
-      system_documentation_url: https://github.com/byu-oit/domain-adm-res-vocabulary-inspector
+      system_documentation_url: https://github.com/byu-oit/wabs-starter-nuxt
       swagger_urls:
     microservice: true # optional
     technologies_used: # optional
+    - JavaScript
+    - Vue
+    - CSS
+    - NodeJS
     standard_change_template:
     stages:
       development:
