@@ -5,6 +5,7 @@
 <script>
     export default {
         name: "controlled_vocabs"
+
     }
 </script>
 

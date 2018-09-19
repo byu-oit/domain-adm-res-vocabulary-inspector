@@ -1,10 +1,11 @@
 <template>
-    <div id="page">
+    <div>
         <h1> {{ title }} </h1>
         <div class="container">
             <h2> Vocab Names </h2>
             <h2> {Name:} </h2>
         </div>
+        <h1> {{table}}</h1>
     </div>
 </template>
 
