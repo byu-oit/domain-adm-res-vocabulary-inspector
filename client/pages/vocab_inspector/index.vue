@@ -1,35 +1,47 @@
 <template>
     <div>
         <h1> {{ title }} </h1>
-        <div class="container">
-            <h2> Vocab Names </h2>
-            <h2> {Name:} </h2>
-        </div>
-        <h1> {{table}}</h1>
+        <v-layout>
+            <vocab-names></vocab-names>
+            <div>
+                <h3> {{ tableName + ':'}} </h3>
+                <controlled-vocabs></controlled-vocabs>
+            </div>
+        </v-layout>
     </div>
 </template>
 
 <script>
+    import vocabNames from "../../components/vocab_names"
+    import controlledVocabs from "../../components/controlled_vocabs"
     export default {
+        components: {
+            vocabNames,
+            controlledVocabs
+        },
         name: "index",
         data: function() {
            return {
-               title: "Controlled Vocabularies"
+               title: "Controlled Vocabularies",
+               listName: "Vocab Names",
+               tableName: "NAME" //get from api
            }
-        }
+        },
     }
 
 </script>
 
 <style scoped>
-    .container > * {
-        display: inline-block;
-        color: #ff44e7;
-        margin-left: 200px;
-        margin-right: 100px;
-    }
+
     h1 {
         color: darkblue;
+        padding-bottom: 50px;
+    }
+
+    h3 {
+        color: darkblue;
+        padding-bottom: 15px;
+        padding-top: 15px;
     }
 
 </style>
