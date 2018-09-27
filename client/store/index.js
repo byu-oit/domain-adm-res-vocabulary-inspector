@@ -18,12 +18,51 @@
 
 // export state as a function
 export const state = () => ({
-    stitle: 'My custom title'
+    name: 'Countries',
+    nameList: [
+        "Countries",
+        "Buildings",
+        "Transfer Colleges"
+    ],
+    vocabContents: [
+        {
+            id: "ITB",
+            shortDesc: "IT Building",
+            longDesc: "Information Technology Building"
+        },
+        {
+            id: "HFAC",
+            shortDesc: "Arts Building",
+            longDesc: "Harrison Fine Arts Center"
+        },
+        {
+            id: "TMCB",
+            shortDesc: "Talmage",
+            longDesc: "Talmage Building"
+        }
+    ]
 });
+
+export const getters = {
+    getName: state => {
+        return state.name
+    },
+    getNameList: state => {
+        return state.nameList
+    },
+    getVocabContents: state => {
+        return state.vocabContents
+    }
+};
 
 // export mutations object
 export const mutations = {
-
+    CHANGE_NAME: (state, name) => {
+        state.name = name
+    },
+    CHANGE_VOCAB: (state, name) => {
+        //state.vocabContents = get(name) api call
+    }
 };
 
 // export actions object
@@ -36,6 +75,13 @@ export const actions = {
         // update user and auth data
         commit('wabs/authUpdate', wabs.auth);
         commit('wabs/userUpdate', wabs.user);
+    },
+    changeName: (context, name) => {
+        context.commit("CHANGE_NAME", name)
+    },
+    changeVocab: (context, vocab) => {
+        context.commit("CHANGE_VOCAB", vocab)
     }
+
 
 };

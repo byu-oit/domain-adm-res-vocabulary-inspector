@@ -1,11 +1,10 @@
 <template>
     <div>
         <h1> {{ title }} </h1>
-        <h3> {{ stitle }}</h3>
         <v-layout>
             <vocab-names></vocab-names>
             <div>
-                <h3> {{ tableName + ':'}} </h3>
+                <h3> {{ getName + ':'}} </h3>
                 <controlled-vocabs></controlled-vocabs>
             </div>
         </v-layout>
@@ -14,7 +13,7 @@
 
 <script>
 
-    import {mapState} from 'vuex'
+    import {mapGetters} from 'vuex'
 
     import vocabNames from "../../components/vocab_names"
     import controlledVocabs from "../../components/controlled_vocabs"
@@ -26,14 +25,12 @@
         name: "index",
         data: function() {
            return {
-               title: "Controlled Vocabularies",
-               listName: "Vocab Names",
-               tableName: "NAME" //get from api
+               title: "Controlled Vocabularies"
            }
         },
         computed: {
-            ...mapState ([
-                'stitle'
+            ...mapGetters ([
+                'getName'
             ])
         }
     }

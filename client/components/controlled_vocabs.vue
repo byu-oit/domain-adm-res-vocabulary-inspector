@@ -1,7 +1,7 @@
 <template>
     <v-data-table
             :headers="headers"
-            :items="vocabContents"
+            :items="getVocabContents"
             class="elevation-1"
             hide-actions
     >
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
         name: "controlled-vocabs",
         data: function() {
@@ -25,26 +26,14 @@
                     {text: 'ID', sortable: false, align: 'center', value: 'id'},
                     {text: 'Short Description', sortable: false, align: 'center', value: 'shortDesc'},
                     {text: 'Long Description', sortable: false, align: 'center', value: 'longDesc'}
-                ],
-                vocabContents: [
-                    {
-                        id: "ITB",
-                        shortDesc: "IT Building",
-                        longDesc: "Information Technology Building"
-                    },
-                    {
-                        id: "HFAC",
-                        shortDesc: "Arts Building",
-                        longDesc: "Harrison Fine Arts Center"
-                    },
-                    {
-                       id: "TMCB",
-                       shortDesc: "Talmage",
-                       longDesc: "Talmage Building"
-                    }
                 ]
             }
         },
+        computed: {
+            ...mapGetters ([
+                'getVocabContents'
+            ])
+        }
     }
 </script>
 
