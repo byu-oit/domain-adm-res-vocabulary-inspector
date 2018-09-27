@@ -39,4 +39,13 @@
 
 <style scoped>
 
+    td {
+        color: white;
+        background: #002856;
+    }
+
+    tableHead {
+        color: pink;
+    }
+
 </style>

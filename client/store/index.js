@@ -82,6 +82,4 @@ export const actions = {
     changeVocab: (context, vocab) => {
         context.commit("CHANGE_VOCAB", vocab)
     }
-
-
 };

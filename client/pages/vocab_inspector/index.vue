@@ -40,12 +40,12 @@
 <style scoped>
 
     h1 {
-        color: darkblue;
+        color: #002856;
         padding-bottom: 50px;
     }
 
     h3 {
-        color: darkblue;
+        color: #002856;
         padding-bottom: 15px;
         padding-top: 15px;
     }
