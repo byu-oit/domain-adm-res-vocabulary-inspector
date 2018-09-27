@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1> {{ title }} </h1>
+        <h3> {{ stitle }}</h3>
         <v-layout>
             <vocab-names></vocab-names>
             <div>
@@ -12,6 +13,9 @@
 </template>
 
 <script>
+
+    import {mapState} from 'vuex'
+
     import vocabNames from "../../components/vocab_names"
     import controlledVocabs from "../../components/controlled_vocabs"
     export default {
@@ -27,6 +31,11 @@
                tableName: "NAME" //get from api
            }
         },
+        computed: {
+            ...mapState ([
+                'stitle'
+            ])
+        }
     }
 
 </script>

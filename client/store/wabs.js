@@ -22,7 +22,7 @@ export const state = () => ({
         accessToken: undefined,
         expires: undefined
     },
-    user: undefined
+    user: undefined,
 });
 
 // export mutations object

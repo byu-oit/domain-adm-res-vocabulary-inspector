@@ -3,6 +3,7 @@
             :headers="headers"
             :items="vocabContents"
             class="elevation-1"
+            hide-actions
     >
         <template slot="items" slot-scope="props">
             <td class="text-xs-center">{{ props.item.id }}</td>

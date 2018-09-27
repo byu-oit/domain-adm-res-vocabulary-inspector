@@ -6,7 +6,7 @@
                     <h3> {{ table }}</h3>
                     <v-divider></v-divider>
 
-                    <v-list-tile avatar v-for="name in nameList":id="name" @click="changeTable">
+                    <v-list-tile avatar v-for="name in nameList":id="name" @click="changeTable(name)">
                         <v-list-tile-content> {{name}} </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -29,9 +29,9 @@
             }
         },
         methods: {
-            changeTable: function() {
-                alert(name);
-                //get which one is clicked?
+            changeTable: function(tableName) {
+                alert(tableName);
+                 let tablename = tableName;
             }
         }
     }

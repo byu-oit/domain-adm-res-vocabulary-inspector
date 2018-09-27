@@ -18,7 +18,7 @@
 
 // export state as a function
 export const state = () => ({
-
+    stitle: 'My custom title'
 });
 
 // export mutations object
