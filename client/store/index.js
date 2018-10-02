@@ -18,27 +18,135 @@
 
 // export state as a function
 export const state = () => ({
-    name: 'Countries',
-    nameList: [
-        "Countries",
-        "Buildings",
-        "Transfer Colleges"
+    nameList: [  //NEED TP USE API
+        "adm_admit_periods",
+        "adm_applicant_types_all",
+        "adm_applicant_types_byu",
+        "adm_applicant_types_byuh",
+        "adm_applicant_types_byui",
+        "adm_applicant_types_ldsbc",
+        "adm_application_actions",
+        "adm_application_status",
+        "adm_ces_schools",
+        "adm_citizenship_status",
+        "adm_decisions",
+        "adm_ethnicities",
+        "adm_extracurricular_participation",
+        "adm_extracurricular_types",
+        "adm_family_income_level",
+        "adm_flags_byui",
+        "adm_flags_ldsbc",
+        "adm_hawaiian_islands",
+        "adm_high_school_types",
+        "adm_level_of_education",
+        "adm_process_phase_states",
+        "adm_relationship_types",
+        "adm_residing_with_options",
+        "adm_seminary_types",
+        "adm_srs_certificates",
+        "adm_visa_types"
     ],
+    name: 'adm_admit_periods', //useAPI
     vocabContents: [
+        // {
+        //     value: "ITB",
+        //     description: "IT Building",
+        //     long_description: "Information Technology Building"
+        // },
+        // {
+        //     value: "HFAC",
+        //     description: "Arts Building",
+        //     long_description: "Harrison Fine Arts Center"
+        // },
+        // {
+        //     value: "TMCB",
+        //     description: "Talmage",
+        //     long_description: "Talmage Building"
+        // },
         {
-            id: "ITB",
-            shortDesc: "IT Building",
-            longDesc: "Information Technology Building"
+            "value": "?????",
+            "description": "Unknown",
+            "long_description": "Unknown"
         },
         {
-            id: "HFAC",
-            shortDesc: "Arts Building",
-            longDesc: "Harrison Fine Arts Center"
+            "value": "20181",
+            "description": "2018 Winter",
+            "long_description": "Winter 2018"
         },
         {
-            id: "TMCB",
-            shortDesc: "Talmage",
-            longDesc: "Talmage Building"
+            "value": "20183",
+            "description": "2018 Spring",
+            "long_description": "Spring 2018"
+        },
+        {
+            "value": "20184",
+            "description": "2018 Summer",
+            "long_description": "Summer 2018"
+        },
+        {
+            "value": "20185",
+            "description": "2018 Fall",
+            "long_description": "Fall 2018"
+        },
+        {
+            "value": "20191",
+            "description": "2019 Winter",
+            "long_description": "Winter 2019"
+        },
+        {
+            "value": "20193",
+            "description": "2019 Spring",
+            "long_description": "Spring 2019"
+        },
+        {
+            "value": "20194",
+            "description": "2019 Summer",
+            "long_description": "Summer 2019"
+        },
+        {
+            "value": "20195",
+            "description": "2019 Fall",
+            "long_description": "Fall 2019"
+        },
+        {
+            "value": "20201",
+            "description": "2020 Winter",
+            "long_description": "Winter 2020"
+        },
+        {
+            "value": "20203",
+            "description": "2020 Spring",
+            "long_description": "Spring 2020"
+        },
+        {
+            "value": "20204",
+            "description": "2020 Summer",
+            "long_description": "Summer 2020"
+        },
+        {
+            "value": "20205",
+            "description": "2020 Fall",
+            "long_description": "Fall 2020"
+        },
+        {
+            "value": "20211",
+            "description": "2021 Winter",
+            "long_description": "Winter 2021"
+        },
+        {
+            "value": "20213",
+            "description": "2021 Spring",
+            "long_description": "Spring 2021"
+        },
+        {
+            "value": "20214",
+            "description": "2021 Summer",
+            "long_description": "Summer 2021"
+        },
+        {
+            "value": "20215",
+            "description": "2021 Fall",
+            "long_description": "Fall 2021"
         }
     ]
 });
@@ -57,8 +165,8 @@ export const getters = {
 
 // export mutations object
 export const mutations = {
-    CHANGE_NAME: (state, name) => {
-        state.name = name
+    CHANGE_NAME: (state, num) => {
+        state.name = state.nameList[num]
     },
     CHANGE_VOCAB: (state, name) => {
         //state.vocabContents = get(name) api call

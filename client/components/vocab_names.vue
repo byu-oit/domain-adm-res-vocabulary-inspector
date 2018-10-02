@@ -6,7 +6,7 @@
                     <h3> {{ table }}</h3>
                     <v-divider></v-divider>
 
-                    <v-list-tile avatar v-for="name in getNameList":id="name" @click="changeTableName(name)">
+                    <v-list-tile avatar v-for="(name, index) in getNameList":id="name" @click="changeTableName(index)">
                         <v-list-tile-content class="nameList"> {{name}} </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -22,7 +22,6 @@
         data: function () {
             return {
                 table: "Vocab Names",
-                newName: 'Countries'
             }
         },
         methods: {
@@ -44,7 +43,7 @@
 
     h3 {
         color: #002856;
-        padding-left: 1.5em;
+        padding-left: 4.5em;
         padding-top: .5em;
         padding-bottom: 1em;
     }

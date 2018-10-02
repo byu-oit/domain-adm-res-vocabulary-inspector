@@ -2,13 +2,18 @@
     <v-data-table
             :headers="headers"
             :items="getVocabContents"
-            class="elevation-1"
+            class="elevation-5"
             hide-actions
     >
+        <template slot="headerCell" slot-scope="props">
+            <span slot="activator">
+                {{ props.header.text }}
+            </span>
+        </template>
         <template slot="items" slot-scope="props">
-            <td class="text-xs-center">{{ props.item.id }}</td>
-            <td class="text-xs-center">{{ props.item.shortDesc }}</td>
-            <td class="text-xs-center">{{ props.item.longDesc}}</td>
+            <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.value }}</td>
+            <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.description }}</td>
+            <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.long_description}}</td>
         </template>
         <template slot="pageText" slot-scope="props">
             Items {{ props.pageStart }} - {{ props.pageStop }} of {{ props.itemsLength }}
@@ -23,9 +28,9 @@
         data: function() {
             return {
                 headers: [
-                    {text: 'ID', sortable: false, align: 'center', value: 'id'},
-                    {text: 'Short Description', sortable: false, align: 'center', value: 'shortDesc'},
-                    {text: 'Long Description', sortable: false, align: 'center', value: 'longDesc'}
+                    {text: 'Value', sortable: false, align: 'center', value: 'value'},
+                    {text: 'Short Description', sortable: false, align: 'center', value: 'description'},
+                    {text: 'Long Description', sortable: false, align: 'center', value: 'long_description'}
                 ]
             }
         },
@@ -40,12 +45,21 @@
 <style scoped>
 
     td {
-        color: white;
-        background: #002856;
+        color: floralwhite;
+        background: rgba(77,96,133,0.99);
+        height: 200px;
     }
 
-    tableHead {
-        color: pink;
+    span {
+        color: #002856;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+
+    .odd {
+        background: white;
+        color: #002856;
     }
 
 </style>
