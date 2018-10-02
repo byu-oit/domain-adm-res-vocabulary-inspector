@@ -4,7 +4,7 @@
         <v-layout>
             <vocab-names></vocab-names>
             <div>
-                <h3> {{ getName + ':'}} </h3>
+                <h2> {{ getName + ':'}} </h2>
                 <controlled-vocabs></controlled-vocabs>
             </div>
         </v-layout>
@@ -44,10 +44,9 @@
         padding-bottom: 50px;
     }
 
-    h3 {
+    h2 {
         color: #002856;
         padding-bottom: 15px;
-        padding-top: 15px;
     }
 
 </style>

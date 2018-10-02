@@ -44,8 +44,8 @@
     h3 {
         color: #002856;
         padding-left: 4.5em;
-        padding-top: .5em;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
+        height: 10px;
     }
 
     .mt-0 {

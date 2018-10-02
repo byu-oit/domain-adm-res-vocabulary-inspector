@@ -11,9 +11,11 @@
             </span>
         </template>
         <template slot="items" slot-scope="props">
+            <tr>
             <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.value }}</td>
             <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.description }}</td>
             <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.long_description}}</td>
+            </tr>
         </template>
         <template slot="pageText" slot-scope="props">
             Items {{ props.pageStart }} - {{ props.pageStop }} of {{ props.itemsLength }}
@@ -60,6 +62,10 @@
     .odd {
         background: white;
         color: #002856;
+    }
+
+    tr {
+        height: 10px;
     }
 
 </style>

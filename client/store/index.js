@@ -15,6 +15,7 @@
  *    limitations under the License.
  **/
 'use strict';
+import '../../domainRequest'
 
 // export state as a function
 export const state = () => ({
