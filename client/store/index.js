@@ -15,7 +15,10 @@
  *    limitations under the License.
  **/
 'use strict';
-import '../../domainRequest'
+
+// const api = require('../../domainRequest')
+// let response = api.GET('https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1')
+// let apiData = response.body
 
 // export state as a function
 export const state = () => ({
