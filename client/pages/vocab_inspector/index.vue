@@ -2,7 +2,9 @@
     <div>
         <h1> {{ title }} </h1>
         <v-layout>
-            <vocab-names></vocab-names>
+            <no-ssr>
+                <vocab-names></vocab-names>
+            </no-ssr>
             <div>
                 <h2> {{ getName + ':'}} </h2>
                 <controlled-vocabs></controlled-vocabs>
@@ -32,6 +34,10 @@
             ...mapGetters ([
                 'getName'
             ])
+        },
+        async fetch ({ store }) {
+            console.log('vocab_inspector page::fetch')
+            store.dispatch('fetchVocabs')
         }
     }
 

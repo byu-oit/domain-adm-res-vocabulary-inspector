@@ -4,6 +4,8 @@
         <p v-if="$byu.user">You're logged in</p>
         <p v-else>Not logged in</p>
 
+        <nuxt-link to="/vocab_inspector"> vocab inspector </nuxt-link>
+
         <h2>Vuetify</h2>
         <p>This starter also has Vuetify set up with some style modifications to bring it into compliance with the BYU style guide.</p>
         <div>

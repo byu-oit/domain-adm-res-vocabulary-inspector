@@ -20,7 +20,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "beautify-scrollbar": "^1.0.8",
-    "byu-wabs": "^5.5.1",
+    "byu-wabs": "^5.5.2",
     "byu-wso2-request": "github:byu-oit/byu-wso2-request",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",

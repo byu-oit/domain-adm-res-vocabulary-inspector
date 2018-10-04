@@ -16,40 +16,36 @@
  **/
 'use strict';
 
-// const api = require('../../domainRequest')
-// let response = api.GET('https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1')
-// let apiData = response.body
-
 // export state as a function
 export const state = () => ({
-    nameList: [  //NEED TP USE API
-        "adm_admit_periods",
-        "adm_applicant_types_all",
-        "adm_applicant_types_byu",
-        "adm_applicant_types_byuh",
-        "adm_applicant_types_byui",
-        "adm_applicant_types_ldsbc",
-        "adm_application_actions",
-        "adm_application_status",
-        "adm_ces_schools",
-        "adm_citizenship_status",
-        "adm_decisions",
-        "adm_ethnicities",
-        "adm_extracurricular_participation",
-        "adm_extracurricular_types",
-        "adm_family_income_level",
-        "adm_flags_byui",
-        "adm_flags_ldsbc",
-        "adm_hawaiian_islands",
-        "adm_high_school_types",
-        "adm_level_of_education",
-        "adm_process_phase_states",
-        "adm_relationship_types",
-        "adm_residing_with_options",
-        "adm_seminary_types",
-        "adm_srs_certificates",
-        "adm_visa_types"
-    ],
+    nameList: "This should not show",
+    //     "adm_admit_periods",
+    //     "adm_applicant_types_all",
+    //     "adm_applicant_types_byu",
+    //     "adm_applicant_types_byuh",
+    //     "adm_applicant_types_byui",
+    //     "adm_applicant_types_ldsbc",
+    //     "adm_application_actions",
+    //     "adm_application_status",
+    //     "adm_ces_schools",
+    //     "adm_citizenship_status",
+    //     "adm_decisions",
+    //     "adm_ethnicities",
+    //     "adm_extracurricular_participation",
+    //     "adm_extracurricular_types",
+    //     "adm_family_income_level",
+    //     "adm_flags_byui",
+    //     "adm_flags_ldsbc",
+    //     "adm_hawaiian_islands",
+    //     "adm_high_school_types",
+    //     "adm_level_of_education",
+    //     "adm_process_phase_states",
+    //     "adm_relationship_types",
+    //     "adm_residing_with_options",
+    //     "adm_seminary_types",
+    //     "adm_srs_certificates",
+    //     "adm_visa_types"
+    // ],
     name: 'adm_admit_periods', //useAPI
     vocabContents: [
         // {
@@ -174,6 +170,9 @@ export const mutations = {
     },
     CHANGE_VOCAB: (state, name) => {
         //state.vocabContents = get(name) api call
+    },
+    CHANGE_LIST: (state, list) => {
+        state.nameList = list
     }
 };
 
@@ -187,11 +186,31 @@ export const actions = {
         // update user and auth data
         commit('wabs/authUpdate', wabs.auth);
         commit('wabs/userUpdate', wabs.user);
+
+
     },
     changeName: (context, name) => {
         context.commit("CHANGE_NAME", name)
     },
     changeVocab: (context, vocab) => {
         context.commit("CHANGE_VOCAB", vocab)
+    },
+    fetchVocabs: async (context) => {
+        console.log('fetchVocabs')
+        const request = {
+            url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'
+        }
+        return new Promise((resolve, reject) => {
+            window.byu.auth.request(request, (body, status) => {
+                console.log(`'fetchVocabs::body=${typeof body}, status=${status}`)
+
+                if (status >= 400) {
+                    reject(Error('Something went wrong!'))
+                }
+                const values = JSON.parse(body).values
+                context.commit("CHANGE_LIST", values)
+                resolve(true)
+            })
+        })
     }
 };

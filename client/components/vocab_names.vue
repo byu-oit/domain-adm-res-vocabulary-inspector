@@ -6,7 +6,7 @@
                     <h3> {{ table }}</h3>
                     <v-divider></v-divider>
 
-                    <v-list-tile avatar v-for="(name, index) in getNameList":id="name" @click="changeTableName(index)">
+                    <v-list-tile avatar v-for="(name, index) in getNameList ":id="name" @click="changeTableName(index)">
                         <v-list-tile-content class="nameList"> {{name}} </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -17,6 +17,7 @@
 
 <script>
     import {mapGetters, mapMutations, mapActions} from 'vuex'
+
     export default {
         name: "vocab-names",
         data: function () {
@@ -24,6 +25,9 @@
                 table: "Vocab Names",
             }
         },
+        // mounted () {
+        //     this.getNameList();
+        // },
         methods: {
             ...mapMutations(['CHANGE_NAME']),
             ...mapActions(['changeName']),
@@ -35,7 +39,7 @@
             ...mapGetters ([
                 'getNameList'
             ])
-        },
+        }
     }
 </script>
 

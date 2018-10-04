@@ -67,7 +67,8 @@ const config = {
         vendor: [
             'axios',  // add axios globally
         ]
-    }
+    },
+    mode: 'spa'
 };
 
 module.exports = config;
