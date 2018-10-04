@@ -6,7 +6,7 @@
                     <h3> {{ table }}</h3>
                     <v-divider></v-divider>
 
-                    <v-list-tile avatar v-for="(name, index) in getNameList ":id="name" @click="changeTableName(index)">
+                    <v-list-tile avatar v-for="(name, index) in getNameList ":id="name" @click="onClick(index, name)">
                         <v-list-tile-content class="nameList"> {{name}} </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -25,14 +25,18 @@
                 table: "Vocab Names",
             }
         },
-        // mounted () {
-        //     this.getNameList();
-        // },
         methods: {
             ...mapMutations(['CHANGE_NAME']),
-            ...mapActions(['changeName']),
-            changeTableName: function(name) {
-                this.CHANGE_NAME(name)
+            ...mapActions(['fetchDescs']),
+            changeTableName: function(num) {
+                this.CHANGE_NAME(num)
+            },
+            changeVocab: function(name) {
+                this.fetchDescs(name)
+            },
+            onClick: function(num, name) {
+                this.changeTableName(num)
+                this.changeVocab(name)
             }
         },
         computed: {

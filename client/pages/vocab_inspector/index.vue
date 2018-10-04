@@ -36,8 +36,8 @@
             ])
         },
         async fetch ({ store }) {
-            console.log('vocab_inspector page::fetch')
             store.dispatch('fetchVocabs')
+            store.dispatch('fetchDescs')
         }
     }
 
