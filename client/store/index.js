@@ -61,9 +61,6 @@ export const actions = {
 
 
     },
-    changeName: (context, name) => {
-        context.commit("CHANGE_NAME", name)
-    },
     fetchVocabs: async (context) => {
         const request = {
             url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'

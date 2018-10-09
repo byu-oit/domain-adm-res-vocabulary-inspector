@@ -7,7 +7,7 @@
             </no-ssr>
             <div>
                 <h2> {{ getName + ':'}} </h2>
-                <controlled-vocabs></controlled-vocabs>
+                <controlled-vocabs> </controlled-vocabs>
             </div>
         </v-layout>
     </div>
@@ -15,7 +15,7 @@
 
 <script>
 
-    import {mapGetters} from 'vuex'
+    import {mapGetters, mapActions} from 'vuex'
 
     import vocabNames from "../../components/vocab_names"
     import controlledVocabs from "../../components/controlled_vocabs"
@@ -35,9 +35,18 @@
                 'getName'
             ])
         },
+        methods: {
+            ...mapActions(['fetchDescs']),
+            ...mapActions(['fetchVocabs']),
+            changeVocab: function (name) {
+                this.fetchDescs(name)
+            }
+        },
+        beforeMount() {
+            this.changeVocab('adm_admit_periods')
+        },
         async fetch ({ store }) {
             store.dispatch('fetchVocabs')
-            store.dispatch('fetchDescs')
         }
     }
 
