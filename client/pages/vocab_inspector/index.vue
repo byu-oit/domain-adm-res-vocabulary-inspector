@@ -36,14 +36,7 @@
             ])
         },
         methods: {
-            ...mapActions(['fetchDescs']),
             ...mapActions(['fetchVocabs']),
-            changeVocab: function (name) {
-                this.fetchDescs(name)
-            }
-        },
-        beforeMount() {
-            this.changeVocab('adm_admit_periods')
         },
         async fetch ({ store }) {
             store.dispatch('fetchVocabs')

@@ -19,8 +19,9 @@
 // export state as a function
 export const state = () => ({
     nameList: "",
-    name: "",
-    vocabContents: [{ "value": "", "description": "", "long_description": "" }]
+    name: "Select a Vocab Name",
+    vocabContents: [{ "value": "", "description": "", "long_description": "" }],
+    showDesc: false
 });
 
 export const getters = {
@@ -32,6 +33,9 @@ export const getters = {
     },
     getVocabContents: state => {
         return state.vocabContents
+    },
+    getShowDesc: state => {
+        return state.showDesc
     }
 };
 
@@ -45,6 +49,9 @@ export const mutations = {
     },
     CHANGE_DESC: (state, array) => {
         state.vocabContents = array
+    },
+    CHANGE_SHOWDESC: (state, boolean) => {
+        state.showDesc = boolean
     }
 };
 
@@ -69,7 +76,6 @@ export const actions = {
             window.byu.auth.request(request, (body, status) => {
                 const values = JSON.parse(body).values
                 context.commit("CHANGE_LIST", values)
-                context.commit("CHANGE_NAME", 0)
                 resolve(true)
             })
         })

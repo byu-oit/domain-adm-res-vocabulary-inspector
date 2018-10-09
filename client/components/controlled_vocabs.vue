@@ -1,5 +1,6 @@
 <template>
     <v-data-table
+            v-show="getShowDesc"
             :headers="headers"
             :items="getVocabContents"
             class="elevation-5"
@@ -38,7 +39,8 @@
         },
         computed: {
             ...mapGetters ([
-                'getVocabContents'
+                'getVocabContents',
+                'getShowDesc'
             ])
         }
     }

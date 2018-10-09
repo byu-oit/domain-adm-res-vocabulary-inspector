@@ -26,7 +26,10 @@
             }
         },
         methods: {
-            ...mapMutations(['CHANGE_NAME']),
+            ...mapMutations([
+                'CHANGE_NAME',
+                'CHANGE_SHOWDESC'
+            ]),
             ...mapActions(['fetchDescs']),
             changeTableName: function(num) {
                 this.CHANGE_NAME(num)
@@ -34,9 +37,13 @@
             changeVocab: function(name) {
                 this.fetchDescs(name)
             },
+            changeShowDesc: function() {
+                this.CHANGE_SHOWDESC(true)
+            },
             onClick: function(num, name) {
                 this.changeTableName(num)
                 this.changeVocab(name)
+                this.changeShowDesc()
             }
         },
         computed: {
