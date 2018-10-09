@@ -27,7 +27,7 @@
         name: "index",
         data: function() {
            return {
-               title: "Controlled Vocabularies"
+               title: "Vocabulary Inspector"
            }
         },
         computed: {
