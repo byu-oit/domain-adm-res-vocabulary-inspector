@@ -69,7 +69,8 @@ export const mutations = {
     },
     RESET_PAGE: (state) => {
         state.name = "Select a Vocabulary Name",
-        state.vocabContents = [{ "value": "", "description": "", "long_description": "" }]
+        state.vocabContents = [{ "value": "", "description": "", "long_description": "" }],
+        state.showDesc = false
     }
 };
 

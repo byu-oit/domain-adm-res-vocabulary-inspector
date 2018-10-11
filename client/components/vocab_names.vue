@@ -32,8 +32,7 @@
             ]),
             ...mapActions([
                 'fetchAdmDescs',
-                'fetchComDescs',
-                'fetchAdmVocabs'
+                'fetchComDescs'
             ]),
             changeTableName: function(num) {
                 this.CHANGE_NAME(num)
@@ -62,9 +61,6 @@
                 'getTab'
             ])
         }
-        // async fetch ({ store }) {
-        //     store.dispatch()
-        // }
     }
 </script>
 

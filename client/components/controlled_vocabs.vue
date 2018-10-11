@@ -18,9 +18,6 @@
             <td class="text-xs-center" :class="{ 'odd': props.index % 2 !== 0 }">{{ props.item.long_description}}</td>
             </tr>
         </template>
-        <template slot="pageText" slot-scope="props">
-            Items {{ props.pageStart }} - {{ props.pageStop }} of {{ props.itemsLength }}
-        </template>
     </v-data-table>
 </template>
 
