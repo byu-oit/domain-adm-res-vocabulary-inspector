@@ -3,18 +3,18 @@
         <byu-header constrain-top-bar>
 
             <!-- site title -->
-            <h1 slot="site-title" v-if="!hasSubtitle">{{pageTitle.main}}</h1>
+            <h1 slot="site-title" v-if="!hasSubtitle">{{'Vocabulary Inspector'}}</h1> <!--pageTitle.main-->
             <span v-if="hasSubtitle && pageTitle.pre" slot="site-title" class="subtitle">{{pageTitle.pre}}</span>
             <span v-if="hasSubtitle" slot="site-title">{{pageTitle.main}}</span>
             <span v-if="hasSubtitle && pageTitle.post" slot="site-title" class="subtitle">{{pageTitle.post}}</span>
 
-            <!-- site search -->
-            <byu-search slot="search" placeholder="Search" v-if="searchEnabled">
-                <form method="get" @submit.prevent="searchSubmit">
-                    <input type="search" name="search" id="byuSiteSearch" autocomplete="off"
-                           :value="searchValue" @input="searchUpdate">
-                </form>
-            </byu-search>
+            <!--&lt;!&ndash; site search &ndash;&gt;-->
+            <!--<byu-search slot="search" placeholder="Search" v-if="searchEnabled">-->
+                <!--<form method="get" @submit.prevent="searchSubmit">-->
+                    <!--<input type="search" name="search" id="byuSiteSearch" autocomplete="off"-->
+                           <!--:value="searchValue" @input="searchUpdate">-->
+                <!--</form>-->
+            <!--</byu-search>-->
 
             <!-- user login / logout -->
             <byu-user-info slot="user" login-url="#login">
@@ -24,14 +24,14 @@
             </byu-user-info>
 
             <!-- show navigation if there are links -->
-            <byu-menu slot="nav" v-if="hasNavigation">
-                <template v-for="link in navigationLinks">
-                    <nuxt-link v-if="isLocalLink(link.href)"
-                               active-class="active" exact
-                               :to="link.href">{{link.title}}</nuxt-link>
-                    <a v-else :href="link.href">{{link.title}}</a>
-                </template>
-            </byu-menu>
+            <!--<byu-menu slot="nav" v-if="hasNavigation">-->
+                <!--<template v-for="link in navigationLinks">-->
+                    <!--<nuxt-link v-if="isLocalLink(link.href)"-->
+                               <!--active-class="active" exact-->
+                               <!--:to="link.href">{{link.title}}</nuxt-link>-->
+                    <!--<a v-else :href="link.href">{{link.title}}</a>-->
+                <!--</template>-->
+            <!--</byu-menu>-->
 
         </byu-header>
 
@@ -45,6 +45,7 @@
 
 <script>
     const rxExternalUrl = /https?:\/\//;
+
 
     export default {
         computed: {

@@ -22,7 +22,7 @@
         name: "vocab-names",
         data: function () {
             return {
-                table: "Vocab Names",
+                table: "Vocabulary Names"
             }
         },
         methods: {
@@ -30,12 +30,22 @@
                 'CHANGE_NAME',
                 'CHANGE_SHOWDESC'
             ]),
-            ...mapActions(['fetchDescs']),
+            ...mapActions([
+                'fetchAdmDescs',
+                'fetchComDescs',
+                'fetchAdmVocabs'
+            ]),
             changeTableName: function(num) {
                 this.CHANGE_NAME(num)
             },
             changeVocab: function(name) {
-                this.fetchDescs(name)
+                console.log(this.getTab)
+                if (this.getTab === "Admissions") {
+                    this.fetchAdmDescs(name)
+                }
+                else {
+                    this.fetchComDescs(name)
+                }
             },
             changeShowDesc: function() {
                 this.CHANGE_SHOWDESC(true)
@@ -48,9 +58,13 @@
         },
         computed: {
             ...mapGetters ([
-                'getNameList'
+                'getNameList',
+                'getTab'
             ])
         }
+        // async fetch ({ store }) {
+        //     store.dispatch()
+        // }
     }
 </script>
 
@@ -58,7 +72,7 @@
 
     h3 {
         color: #002856;
-        padding-left: 4.5em;
+        padding-left: 3.5em;
         padding-bottom: 2em;
         height: 10px;
     }

@@ -19,9 +19,14 @@
 // export state as a function
 export const state = () => ({
     nameList: "",
-    name: "Select a Vocab Name",
+    name: "Select a Vocabulary Name",
     vocabContents: [{ "value": "", "description": "", "long_description": "" }],
-    showDesc: false
+    showDesc: false,
+    navigationLinks: [
+        "Admissions",
+        "Common"
+    ],
+    tab: "Admissions"
 });
 
 export const getters = {
@@ -36,6 +41,12 @@ export const getters = {
     },
     getShowDesc: state => {
         return state.showDesc
+    },
+    getNavigationLinks: state => {
+        return state.navigationLinks
+    },
+    getTab: state => {
+        return state.tab
     }
 };
 
@@ -52,6 +63,13 @@ export const mutations = {
     },
     CHANGE_SHOWDESC: (state, boolean) => {
         state.showDesc = boolean
+    },
+    CHANGE_TAB: (state, string) => {
+        state.tab = string
+    },
+    RESET_PAGE: (state) => {
+        state.name = "Select a Vocabulary Name",
+        state.vocabContents = [{ "value": "", "description": "", "long_description": "" }]
     }
 };
 
@@ -68,21 +86,48 @@ export const actions = {
 
 
     },
-    fetchVocabs: async (context) => {
+    fetchAdmVocabs: async (context) => {
         const request = {
-            url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'
+             url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'
         }
         return new Promise((resolve, reject) => {
             window.byu.auth.request(request, (body, status) => {
                 const values = JSON.parse(body).values
                 context.commit("CHANGE_LIST", values)
+                context.commit("CHANGE_TAB", "Admissions")
                 resolve(true)
             })
         })
     },
-    fetchDescs: async (context, vocab) => {
+    fetchAdmDescs: async (context, vocab) => {
         const request = {
             url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/' + vocab
+        }
+        console.log("async reached " + request.url)
+        return new Promise((resolve, reject) => {
+            window.byu.auth.request(request, (body, status) => {
+                const values = JSON.parse(body).values
+                context.commit("CHANGE_DESC", values)
+                resolve(true)
+            })
+        })
+    },
+    fetchComVocabs: async (context) => {
+        const request = {
+            url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/'
+        }
+        return new Promise((resolve, reject) => {
+            window.byu.auth.request(request, (body, status) => {
+                const values = JSON.parse(body).values
+                context.commit("CHANGE_LIST", values)
+                context.commit("CHANGE_TAB", "Common")
+                resolve(true)
+            })
+        })
+    },
+    fetchComDescs: async (context, vocab) => {
+        const request = {
+            url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/' + vocab
         }
         console.log("async reached " + request.url)
         return new Promise((resolve, reject) => {

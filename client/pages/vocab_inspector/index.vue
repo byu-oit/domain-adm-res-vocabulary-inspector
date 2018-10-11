@@ -1,6 +1,19 @@
 <template>
     <div>
-        <h1> {{ title }} </h1>
+        <v-tabs
+                fixed-tabs
+                class="tabPad"
+                slider-color="black"
+        >
+            <v-tab
+                    v-for="n in getNavigationLinks"
+                    :key="n"
+                    @click="changeAPI(n)"
+            >
+                {{ n }}
+            </v-tab>
+        </v-tabs>
+
         <v-layout>
             <no-ssr>
                 <vocab-names></vocab-names>
@@ -15,31 +28,45 @@
 
 <script>
 
-    import {mapGetters, mapActions} from 'vuex'
+    import {mapGetters, mapActions, mapMutations} from 'vuex'
 
     import vocabNames from "../../components/vocab_names"
     import controlledVocabs from "../../components/controlled_vocabs"
+
     export default {
         components: {
             vocabNames,
             controlledVocabs
         },
         name: "index",
-        data: function() {
-           return {
-               title: "Vocabulary Inspector"
-           }
-        },
         computed: {
             ...mapGetters ([
-                'getName'
+                'getName',
+                'getNavigationLinks'
             ])
         },
         methods: {
-            ...mapActions(['fetchVocabs']),
+            ...mapActions([
+                'fetchAdmVocabs',
+                'fetchComVocabs'
+            ]),
+            ...mapMutations([
+                'CHANGE_TAB',
+                "RESET_PAGE"
+            ]),
+            changeAPI: function(string, store) {
+                this.CHANGE_TAB(string)
+                this.RESET_PAGE()
+                if (string === "Admissions") {
+                    this.fetchAdmVocabs()
+                }
+                else {
+                    this.fetchComVocabs()
+                }
+            }
         },
-        async fetch ({ store }) {
-            store.dispatch('fetchVocabs')
+        beforeMount() {
+            this.fetchAdmVocabs()
         }
     }
 
@@ -47,14 +74,13 @@
 
 <style scoped>
 
-    h1 {
-        color: #002856;
-        padding-bottom: 50px;
-    }
-
     h2 {
         color: #002856;
         padding-bottom: 15px;
+    }
+
+    .tabPad {
+        margin-bottom: 50px;
     }
 
 </style>
