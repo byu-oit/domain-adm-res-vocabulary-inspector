@@ -3,7 +3,7 @@
         <byu-header constrain-top-bar>
 
             <!-- site title -->
-            <h1 slot="site-title" v-if="!hasSubtitle">{{'Vocabulary Inspector'}}</h1> <!--pageTitle.main-->
+            <h1 slot="site-title" v-if="!hasSubtitle">{{pageTitle.main}}</h1> <!--pageTitle.main-->
             <span v-if="hasSubtitle && pageTitle.pre" slot="site-title" class="subtitle">{{pageTitle.pre}}</span>
             <span v-if="hasSubtitle" slot="site-title">{{pageTitle.main}}</span>
             <span v-if="hasSubtitle && pageTitle.post" slot="site-title" class="subtitle">{{pageTitle.post}}</span>

@@ -1,5 +1,11 @@
 <template>
     <div>
+        <div  v-if="getLoggedIn === false">
+            <h2> Please Log In </h2>
+        </div>
+        <div
+                v-show="getLoggedIn"
+        >
         <v-tabs
                 fixed-tabs
                 class="tabPad"
@@ -23,6 +29,7 @@
                 <controlled-vocabs> </controlled-vocabs>
             </div>
         </v-layout>
+        </div>
     </div>
 </template>
 
@@ -42,7 +49,9 @@
         computed: {
             ...mapGetters ([
                 'getName',
-                'getNavigationLinks'
+                'getNavigationLinks',
+                'getLoggedIn',
+                'getMessage'
             ])
         },
         methods: {

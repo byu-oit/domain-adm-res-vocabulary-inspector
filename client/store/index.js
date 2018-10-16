@@ -26,7 +26,9 @@ export const state = () => ({
         "Admissions",
         "Common"
     ],
-    tab: "Admissions"
+    tab: "Admissions",
+    loggedIn: false,
+    message: ""
 });
 
 export const getters = {
@@ -47,6 +49,12 @@ export const getters = {
     },
     getTab: state => {
         return state.tab
+    },
+    getLoggedIn: state => {
+        return state.loggedIn
+    },
+    getMessage: state => {
+        return state.message
     }
 };
 
@@ -71,6 +79,12 @@ export const mutations = {
         state.name = "Select a Vocabulary Name",
         state.vocabContents = [{ "value": "", "description": "", "long_description": "" }],
         state.showDesc = false
+    },
+    CHANGE_LOGGED: (state, boolean) => {
+        state.loggedIn = boolean
+    },
+    CHANGE_MESSAGE: (state, string) => {
+        state.message = string
     }
 };
 
@@ -93,10 +107,21 @@ export const actions = {
         }
         return new Promise((resolve, reject) => {
             window.byu.auth.request(request, (body, status) => {
-                const values = JSON.parse(body).values
-                context.commit("CHANGE_LIST", values)
-                context.commit("CHANGE_TAB", "Admissions")
-                resolve(true)
+                if (status > 300 ) {
+                    console.log(status)
+                    console.log(body)
+                    context.commit("CHANGE_LOGGED", false)
+                    context.commit("CHANGE_MESSAGE", body)
+                    resolve(false)
+                }
+                else {
+                    const values = JSON.parse(body).values
+                    context.commit("CHANGE_LIST", values)
+                    context.commit("CHANGE_TAB", "Admissions")
+                    context.commit("CHANGE_LOGGED", true)
+                    context.commit("CHANGE_MESSAGE", "")
+                    resolve(true)
+                }
             })
         })
     },

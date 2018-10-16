@@ -42,7 +42,7 @@ const config = {
         ],
 
         // default site title (in title bar)
-        pageTitle: { pre: '', main: 'Personal Information', post: '' },
+        pageTitle: { pre: '', main: 'Vocabulary Inspector', post: '' },
 
         // how many milliseconds to wait before performing an automatic search - set to zero (0) to disable
         searchDebounce: 350,
@@ -53,7 +53,7 @@ const config = {
         },
 
         // default browser page title (modification requires rebuild)
-        title: 'BYU | Personal Information'
+        title: 'BYU | Vocabulary Inspector'
     },
 
     // the WABS configuration: https://www.npmjs.com/package/byu-wabs#create-a-wabs-configuration
