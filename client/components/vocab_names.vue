@@ -38,7 +38,6 @@
                 this.CHANGE_NAME(num)
             },
             changeVocab: function(name) {
-                console.log(this.getTab)
                 if (this.getTab === "Admissions") {
                     this.fetchAdmDescs(name)
                 }

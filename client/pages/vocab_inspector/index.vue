@@ -1,7 +1,7 @@
 <template>
     <div>
         <div  v-if="getLoggedIn === false">
-            <h2> Please Log In </h2>
+            <h2> {{ getMessage }} </h2>
         </div>
         <div
                 v-show="getLoggedIn"

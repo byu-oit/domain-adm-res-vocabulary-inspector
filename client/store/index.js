@@ -102,66 +102,115 @@ export const actions = {
 
     },
     fetchAdmVocabs: async (context) => {
-        const request = {
-             url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'
+        if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
+            context.commit("CHANGE_LOGGED", false)
+            context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
         }
-        return new Promise((resolve, reject) => {
-            window.byu.auth.request(request, (body, status) => {
-                if (status > 300 ) {
-                    console.log(status)
-                    console.log(body)
-                    context.commit("CHANGE_LOGGED", false)
-                    context.commit("CHANGE_MESSAGE", body)
-                    resolve(false)
-                }
-                else {
-                    const values = JSON.parse(body).values
-                    context.commit("CHANGE_LIST", values)
-                    context.commit("CHANGE_TAB", "Admissions")
-                    context.commit("CHANGE_LOGGED", true)
-                    context.commit("CHANGE_MESSAGE", "")
-                    resolve(true)
-                }
+        else {
+            const request = {
+                url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/'
+            }
+            return new Promise((resolve, reject) => {
+                window.byu.auth.request(request, (body, status) => {
+                    if (status > 400) {
+                        console.error(`${status} - ${body}`)
+                        context.commit("CHANGE_LOGGED", false)
+                        context.commit("CHANGE_MESSAGE", body)
+                        resolve(false)
+                    }
+                    else {
+                        const values = JSON.parse(body).values
+                        context.commit("CHANGE_LIST", values)
+                        context.commit("CHANGE_TAB", "Admissions")
+                        context.commit("CHANGE_LOGGED", true)
+                        resolve(true)
+                    }
+                })
             })
-        })
+        }
     },
     fetchAdmDescs: async (context, vocab) => {
-        const request = {
-            url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/' + vocab
+        if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
+            context.commit("CHANGE_LOGGED", false)
+            context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
         }
-        console.log("async reached " + request.url)
-        return new Promise((resolve, reject) => {
-            window.byu.auth.request(request, (body, status) => {
-                const values = JSON.parse(body).values
-                context.commit("CHANGE_DESC", values)
-                resolve(true)
+        else {
+            const request = {
+                url: 'https://api.byu.edu:443/domains/admissions/resources/vocabularies/v1/' + vocab
+            }
+            console.log("async reached " + request.url)
+            return new Promise((resolve, reject) => {
+                window.byu.auth.request(request, (body, status) => {
+                    if (status > 400) {
+                        console.error(`${status} - ${body}`)
+                        context.commit("CHANGE_LOGGED", false)
+                        context.commit("CHANGE_MESSAGE", body)
+                        resolve(false)
+                    }
+                    else {
+                        const values = JSON.parse(body).values
+                        context.commit("CHANGE_DESC", values)
+                        context.commit("CHANGE_LOGGED", true)
+                        resolve(true)
+                    }
+                })
             })
-        })
+        }
     },
     fetchComVocabs: async (context) => {
-        const request = {
-            url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/'
+        if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
+            context.commit("CHANGE_LOGGED", false)
+            context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
         }
-        return new Promise((resolve, reject) => {
-            window.byu.auth.request(request, (body, status) => {
-                const values = JSON.parse(body).values
-                context.commit("CHANGE_LIST", values)
-                context.commit("CHANGE_TAB", "Common")
-                resolve(true)
+        else {
+            const request = {
+                url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/'
+            }
+            return new Promise((resolve, reject) => {
+                window.byu.auth.request(request, (body, status) => {
+                    if (status > 400) {
+                        console.error(`${status} - ${body}`)
+                        context.commit("CHANGE_LOGGED", false)
+                        context.commit("CHANGE_MESSAGE", body)
+                        resolve(false)
+                    }
+                    else {
+                        const values = JSON.parse(body).values
+                        context.commit("CHANGE_LIST", values)
+                        context.commit("CHANGE_TAB", "Common")
+                        context.commit("CHANGE_LOGGED", true)
+                        resolve(true)
+                    }
+                })
             })
-        })
+        }
     },
     fetchComDescs: async (context, vocab) => {
-        const request = {
-            url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/' + vocab
+        if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
+            context.commit("CHANGE_LOGGED", false)
+            context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
         }
-        console.log("async reached " + request.url)
-        return new Promise((resolve, reject) => {
-            window.byu.auth.request(request, (body, status) => {
-                const values = JSON.parse(body).values
-                context.commit("CHANGE_DESC", values)
-                resolve(true)
+        else {
+            const request = {
+                url: 'https://api.byu.edu:443/domains/common/resources/vocabularies/v1/' + vocab
+            }
+            console.log("async reached " + request.url)
+            return new Promise((resolve, reject) => {
+                window.byu.auth.request(request, (body, status) => {
+                    if (status > 400) {
+                        console.error(`${status} - ${body}`)
+                        context.commit("CHANGE_LOGGED", false)
+                        context.commit("CHANGE_MESSAGE", body)
+                        resolve(false)
+                    }
+                    else {
+                        const values = JSON.parse(body).values
+                        context.commit("CHANGE_DESC", values)
+                        context.commit("CHANGE_LOGGED", true)
+                        resolve(true)
+                    }
+                })
             })
-        })
+        }
     }
 };
