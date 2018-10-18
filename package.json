@@ -1,5 +1,5 @@
 {
-  "name": "wabs-demo",
+  "name": "vocab-inspector",
   "version": "0.0.1",
   "description": "BYU's Web Application Bootstrap Service with Nuxt",
   "private": true,
@@ -15,7 +15,7 @@
     "wabs",
     "byu"
   ],
-  "author": "James Speirs <james.speirs@gmail.com>",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.18.0",

@@ -1,0 +1,41 @@
+version: 1
+
+name: domain-adm-res-vocabulary-inspector
+
+pipelines:
+  dev:
+    phases:
+    - type: github
+      name: GitHub
+      owner: byu-oit
+      repo: domain-adm-res-vocabulary-inspector
+      branch: master
+    - type: codebuild
+      name: CodeBuild
+      build_image: node:8
+    - type: handel
+      name: DevDeploy
+      environments_to_deploy:
+      - dev
+    - type: slack_notify
+      name: Notify
+      channel: '#aim-api-notifications'
+      message: 'Finished deploying domain-adm-res-vocabulary-inspector to dev'
+  prd:
+    phases:
+    - type: github
+      name: GitHub
+      owner: byu-oit
+      repo: domain-adm-res-vocabulary-inspector
+      branch: release
+    - type: codebuild
+      name: CodeBuild
+      build_image: node:8
+    - type: handel
+      name: PrdDeploy
+      environments_to_deploy:
+      - prd
+    - type: slack_notify
+      name: Notify
+      channel: '#aim-api-notifications'
+      message: 'Finished deploying domain-adm-res-vocabulary-inspector to prd'
