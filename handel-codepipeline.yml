@@ -1,6 +1,6 @@
 version: 1
 
-name: domain-adm-res-vocabulary-inspector
+name: vocabulary-inspector
 
 pipelines:
   dev:
@@ -20,7 +20,7 @@ pipelines:
     - type: slack_notify
       name: Notify
       channel: '#aim-api-notifications'
-      message: 'Finished deploying domain-adm-res-vocabulary-inspector to dev'
+      message: 'Finished deploying vocabulary-inspector to dev'
   prd:
     phases:
     - type: github
@@ -38,4 +38,4 @@ pipelines:
     - type: slack_notify
       name: Notify
       channel: '#aim-api-notifications'
-      message: 'Finished deploying domain-adm-res-vocabulary-inspector to prd'
+      message: 'Finished deploying vocabulary-inspector to prd'

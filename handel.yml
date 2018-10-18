@@ -1,6 +1,6 @@
 version: 1
 
-name: domain-adm-res-vocabulary-inspector
+name: vocabulary-inspector
 
 tags:
   team: AIM APIs
