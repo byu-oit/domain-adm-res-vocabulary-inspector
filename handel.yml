@@ -17,7 +17,7 @@ environments:
         type: https
         https_certificate: c4a82252-b609-4f7c-aae8-83777377a0fd
         dns_names:
-        - domain-adm-res-vocabulary-inspector.sim-dev.byu.edu
+        - vocabulary-inspector.sim-dev.byu.edu
       environment_variables:
         PORT: 8081
         NODE_ENV: production
