@@ -11,7 +11,7 @@ environments:
     webapp:
       type: beanstalk
       path_to_code: .
-      solution_stack: 64bit Amazon Linux 2018.03 v4.5.3 running Node.js
+      solution_stack: 64bit Amazon Linux 2018.03 v4.5.4 running Node.js
       health_check_url: /healthcheck
       routing:
         type: https
@@ -25,7 +25,7 @@ environments:
     webapp:
       type: beanstalk
       path_to_code: .
-      solution_stack: 64bit Amazon Linux 2018.03 v4.5.3 running Node.js
+      solution_stack: 64bit Amazon Linux 2018.03 v4.5.4 running Node.js
       health_check_url: /healthcheck
       routing:
         type: https
