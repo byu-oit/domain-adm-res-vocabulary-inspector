@@ -17,10 +17,10 @@ pipelines:
       name: DevDeploy
       environments_to_deploy:
       - dev
-    - type: slack_notify
-      name: Notify
-      channel: '#aim-api-notifications'
-      message: 'Finished deploying vocabulary-inspector to dev'
+#    - type: slack_notify
+#      name: Notify
+#      channel: '#aim-api-notifications'
+#      message: 'Finished deploying vocabulary-inspector to dev'
   prd:
     phases:
     - type: github
@@ -35,7 +35,7 @@ pipelines:
       name: PrdDeploy
       environments_to_deploy:
       - prd
-    - type: slack_notify
-      name: Notify
-      channel: '#aim-api-notifications'
-      message: 'Finished deploying vocabulary-inspector to prd'
+#    - type: slack_notify
+#      name: Notify
+#      channel: '#aim-api-notifications'
+#      message: 'Finished deploying vocabulary-inspector to prd'

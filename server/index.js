@@ -37,6 +37,12 @@ app.use(init(wabs));
 // import API routes
 app.use('/api', api);
 
+//Health Check
+app.get('/healthcheck',function(req,res)
+{
+    res.send("Good")
+})
+
 // serve static content and index.html
 app.use(render(wabs));
 
