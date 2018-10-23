@@ -12,6 +12,7 @@ environments:
       type: beanstalk
       path_to_code: .
       solution_stack: 64bit Amazon Linux 2018.03 v4.5.3 running Node.js
+      health_check_url: /healthcheck
       routing:
         type: https
         https_certificate: c4a82252-b609-4f7c-aae8-83777377a0fd
@@ -19,7 +20,7 @@ environments:
         - vocabulary-inspector.sim-dev.byu.edu
       environment_variables:
         PORT: 8081
-        NODE_ENV: production
+        NODE_ENV: development
   prd:
     webapp:
       type: beanstalk
