@@ -197,7 +197,7 @@ export const actions = {
             console.log("async reached " + request.url)
             return new Promise((resolve, reject) => {
                 window.byu.auth.request(request, (body, status) => {
-                    if (status >= 400) {
+                    if (status > 400) {
                         console.error(`${status} - ${body}`)
                         context.commit("CHANGE_LOGGED", false)
                         context.commit("CHANGE_MESSAGE", body)
