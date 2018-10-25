@@ -59,7 +59,7 @@ const config = {
     // the WABS configuration: https://www.npmjs.com/package/byu-wabs#create-a-wabs-configuration
     wabs: {
         appName: pkg.name,
-        //`+configFile: 'C:/Users/tellers/Documents/node/config.json'
+        //configFile: 'C:/Users/tellers/Documents/node/config.json'
     }
 };
 

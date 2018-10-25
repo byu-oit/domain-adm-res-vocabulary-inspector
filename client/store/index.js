@@ -102,6 +102,7 @@ export const actions = {
 
     },
     fetchAdmVocabs: async (context) => {
+        console.log("Making fetch Adm API call.")
         if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
             context.commit("CHANGE_LOGGED", false)
             context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
@@ -119,6 +120,7 @@ export const actions = {
                         resolve(false)
                     }
                     else {
+                        console.log("API call worked")
                         const values = JSON.parse(body).values
                         context.commit("CHANGE_LIST", values)
                         context.commit("CHANGE_TAB", "Admissions")
@@ -130,6 +132,7 @@ export const actions = {
         }
     },
     fetchAdmDescs: async (context, vocab) => {
+        console.log("Making fetch Adm desc API call.")
         if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
             context.commit("CHANGE_LOGGED", false)
             context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
@@ -148,6 +151,7 @@ export const actions = {
                         resolve(false)
                     }
                     else {
+                        console.log("API call worked")
                         const values = JSON.parse(body).values
                         context.commit("CHANGE_DESC", values)
                         context.commit("CHANGE_LOGGED", true)
@@ -158,6 +162,7 @@ export const actions = {
         }
     },
     fetchComVocabs: async (context) => {
+        console.log("Making fetch Com API call.")
         if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
             context.commit("CHANGE_LOGGED", false)
             context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
@@ -175,6 +180,7 @@ export const actions = {
                         resolve(false)
                     }
                     else {
+                        console.log("API call worked")
                         const values = JSON.parse(body).values
                         context.commit("CHANGE_LIST", values)
                         context.commit("CHANGE_TAB", "Common")
@@ -186,6 +192,7 @@ export const actions = {
         }
     },
     fetchComDescs: async (context, vocab) => {
+        console.log("Making fetch Com API call.")
         if (!(window.byu && window.byu.user && window.byu.user.byuId)) {
             context.commit("CHANGE_LOGGED", false)
             context.commit("CHANGE_MESSAGE", "Error! Access not granted.  Please make sure you are logged in.")
@@ -204,6 +211,7 @@ export const actions = {
                         resolve(false)
                     }
                     else {
+                        console.log("API call worked")
                         const values = JSON.parse(body).values
                         context.commit("CHANGE_DESC", values)
                         context.commit("CHANGE_LOGGED", true)
