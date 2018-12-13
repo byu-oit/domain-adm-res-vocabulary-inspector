@@ -46,10 +46,10 @@
 <style scoped>
 
     td {
-        color: floralwhite;
-        background: rgba(77,96,133,0.99);
-        height: 200px;
-    }
+         color: floralwhite;
+         background: rgba(77,96,133,0.99);
+         height: 200px;
+     }
 
     span {
         color: #002856;
