@@ -18,7 +18,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "beautify-scrollbar": "^1.0.8",
     "byu-wabs": "^5.5.6",
     "byu-wso2-request": "github:byu-oit/byu-wso2-request",
